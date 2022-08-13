@@ -19,7 +19,7 @@ function colorCode() {
   
     $('.form-control').each(function() {
         // selecting id value to match up timeline
-        var timeLine = parseInt($('this').attr('id'));
+        var timeLine = parseInt($(this).attr('id'));
         // current hour 
         var currentHour = moment().hours();
         // logs military time
@@ -27,11 +27,11 @@ function colorCode() {
         console.log(timeLine);
 
         if (currentHour > timeLine) {
-            $('this').addClass('past');
+            $(this).addClass('past');
         } else if (currentHour < timeLine){
-            $('this').addClass('future');
+            $(this).addClass('future');
         } else {
-            $('this').addClass('present');
+            $(this).addClass('present');
         }
     })
 }
@@ -41,28 +41,30 @@ colorCode();
 
 
 
-// testing local storage
-// var textInput = JSON.parse()
-
-
-
-var userInput;
-var hourText
-
-// function to save text input to local storage when save button is clicked
-// (jquery on click for event listener)
-$('.save').on('click', function() {
+// function to save text input to local storage 
+function saveToLocalStorage(event) {
+    event.preventDefault();
     // selects all siblings of the button clicked and gets value of text input from class form-control
-    userInput = $('this').siblings('.form-control').val();
+    var userInput = $(this).siblings('.form-control').val().trim();
     console.log(userInput);
-    hourText = $('this').siblings('.input-group-prepend').text();
+    var hourText = $(this).siblings('.input-group-prepend').text().trim();
     console.log(hourText);
     // stringify
     var objString = JSON.stringify(userInput);
+
     localStorage.setItem(hourText, objString);
 
     console.log(objString);
-});
+}
+
+// call the saveToLocalStorage function when the save button is clicked
+$('.save').on('click', saveToLocalStorage);
+
+
+// testing local storage
+// JSON.parse(localStorage.getItem("9 AM"));
+
+
 
 
 
