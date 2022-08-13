@@ -19,7 +19,7 @@ function colorCode() {
   
     $('.form-control').each(function() {
         // selecting id value to match up timeline
-        var timeLine = parseInt($(this).attr('id'));
+        var timeLine = $(this).attr('id');
         // current hour 
         var currentHour = moment().hours();
         // logs military time
@@ -66,21 +66,6 @@ function saveToLocalStorage(event) {
 $('.save').on('click', saveToLocalStorage);
 
 
-// testing local storage
-// var test = JSON.parse(localStorage.getItem("9 AM"));
-// console.log(test)
-
-
-// var schedulerLength;
-
-// function getStorageItems() {
-//     for (i = 0; i < schedulerLength; i++) {
-//         JSON.parse(localStorage.getItem(hourText));
-            
-//     }
-// }
-
-
 // variables selecting each hour 
 var nine = $('#9');
 var ten = $('#10');
@@ -93,6 +78,7 @@ var four = $('#16');
 var five = $('#17');
 var six = $('#18');
 
+// get items from local storage and make each of the selected varables contain that new value
 function showValue() {
     nine.val(JSON.parse(localStorage.getItem('9 AM')));
 
