@@ -63,7 +63,7 @@ function saveToLocalStorage(event) {
 }
 
 // call the saveToLocalStorage function when the save button is clicked
-$('.save').on('click', saveToLocalStorage);
+$('.saveBtn').on('click', saveToLocalStorage);
 
 
 // variables selecting each hour 
