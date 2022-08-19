@@ -20,11 +20,8 @@ function colorCode() {
     $('.form-control').each(function() {
         // selecting id value to match up timeline
         var timeLine = $(this).attr('id');
-        // current hour 
+        // current hour -- displays as military time
         var currentHour = moment().hours();
-        // logs military time
-        console.log(currentHour);
-        console.log(timeLine);
 
         // sets the color code for the scheduler
         if (currentHour > timeLine) {
@@ -50,16 +47,12 @@ function saveToLocalStorage(event) {
     event.preventDefault();
     // selects all siblings of the button clicked and gets value of text input from class form-control
     userInput = $(this).siblings('.form-control').val().trim();
-    console.log(userInput);
     // selects from the siblings the class of input-group-prepend
     hourText = $(this).siblings('.input-group-prepend').text().trim();
-    console.log(hourText);
     // stringify
     objString = JSON.stringify(userInput);
     // sets the variable hourText to the key and objString which is userInput stringified as the value
     localStorage.setItem(hourText, objString);
-
-    console.log(objString);
 }
 
 // call the saveToLocalStorage function when the save button is clicked
