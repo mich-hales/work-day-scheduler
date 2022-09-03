@@ -14,7 +14,7 @@ This application is a simple calendar that allows a user to save events for each
 
 
 ## Links and Preview
-View the app by clicking [HERE](https://mich-hales.github.io/work-day-scheduler.
+View the app by clicking [HERE](https://mich-hales.github.io/work-day-scheduler).
 
 View my repository by clicking [HERE](https://github.com/mich-hales/work-day-scheduler).
 
